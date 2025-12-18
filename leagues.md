@@ -1,6 +1,6 @@
 # Football Leagues Around the World
 
-[Leagues](FootballLeagues.jpeg)
+[Leagues](Champions.jpeg)
 
 ## Introduction to Football Leagues
 

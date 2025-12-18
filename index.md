@@ -1,8 +1,7 @@
 # Everything a football lover needs to know
 
-[Introduction](Introduction.md)
+[Introduction](Introduction.html)
 
-[History](history.md)
+[History](history.html)
 
-[Leagues](leagues.md)
-
+[Leagues](leagues.html)

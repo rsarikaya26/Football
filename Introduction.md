@@ -1,6 +1,6 @@
 # Introduction to Football: The Beautiful Game
 
-[Introduction](ChampionsLeague.jpeg)
+[Introduction](Intro.png)
 
 ## What is Football?
 
