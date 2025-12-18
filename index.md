@@ -4,6 +4,5 @@
 
 [History](history.md)
 
-![Leagues](leagues.md)
-
+[Leagues](leagues.md)
 
