@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Introduction.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+ <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="introduction-to-football-the-beautiful-game">Introduction to Football: The Beautiful Game</h1>
+<p><a href="ChampionsLeague.jpeg">Introduction</a></p>
+<h2 id="what-is-football">What is Football?</h2>
+<p>Football (known as soccer in some countries) is a team sport played between two teams of eleven players each. The objective is to score by getting the ball into the opposing team's goal without using hands or arms (except by the goalkeeper within their penalty area). It is played on a rectangular field with a goal at each end.</p>
+<h3 id="why-%22the-beautiful-game%22">Why &quot;The Beautiful Game&quot;?</h3>
+<p>The phrase &quot;The Beautiful Game&quot; (Portuguese: <em>O Jogo Bonito</em>) was popularized by Brazilian legend Pelé. It captures the essence of football's:</p>
+<ul>
+<li>Artistic expression through skillful play</li>
+<li>Emotional drama and unpredictability</li>
+<li>Universal appeal across cultures</li>
+<li>Simplicity in concept, complexity in execution</li>
+</ul>
+<h2 id="the-global-reach">The Global Reach</h2>
+<h3 id="by-the-numbers">By the Numbers</h3>
+<ul>
+<li><strong>4+ billion fans</strong> worldwide (over half the global population)</li>
+<li><strong>250+ million players</strong> across 200+ countries</li>
+<li><strong>Most watched sport</strong> on television globally</li>
+<li><strong>Official language</strong> of the sport: English terms used worldwide</li>
+</ul>
+<h3 id="geographic-popularity">Geographic Popularity</h3>
+<ol>
+<li><strong>Europe</strong>: Strongest professional leagues, highest attendance</li>
+<li><strong>South America</strong>: Passionate fan culture, technical excellence</li>
+<li><strong>Africa</strong>: Growing talent development, continental competitions</li>
+<li><strong>Asia</strong>: Rapidly expanding markets, increasing investment</li>
+<li><strong>North America</strong>: Growing popularity, developing league systems</li>
+</ol>
+<h2 id="basic-rules-and-gameplay">Basic Rules and Gameplay</h2>
+<h3 id="core-principles">Core Principles</h3>
+<ol>
+<li><strong>Duration</strong>: 90 minutes (two 45-minute halves)</li>
+<li><strong>Objective</strong>: Score more goals than the opponent</li>
+<li><strong>Players</strong>: 11 per side (including one goalkeeper)</li>
+<li><strong>Equipment</strong>: Ball, goals, field markings, player kits</li>
+<li><strong>Officials</strong>: Referee, two assistant referees, fourth official</li>
+</ol>
+<h3 id="key-rules">Key Rules</h3>
+<ul>
+<li><strong>No hands</strong>: Only goalkeepers may handle the ball (in their area)</li>
+<li><strong>Offside</strong>: Positioning rule to prevent goal-hanging</li>
+<li><strong>Fouls</strong>: Direct and indirect free kicks for rule violations</li>
+<li><strong>Penalties</strong>: Awarded for fouls inside the penalty area</li>
+<li><strong>Throw-ins</strong>: When ball crosses touchline</li>
+<li><strong>Goal kicks/Corner kicks</strong>: When ball crosses goal line</li>
+</ul>
+<h2 id="the-football-pyramid">The Football Pyramid</h2>
+<h3 id="competition-structure">Competition Structure</h3>
+<p>International Level
+├── FIFA World Cup (National Teams)
+├── Continental Championships (Euro, Copa America, etc.)
+└── Olympics Football Tournament</p>
+<p>Club Level
+├── Continental Club Competitions (UEFA Champions League, etc.)
+├── Domestic Leagues (Premier League, La Liga, etc.)
+├── Domestic Cups (FA Cup, Copa del Rey, etc.)
+└── Super Cups (Community Shield, Supercopa, etc.)</p>
+<p>text</p>
+<h3 id="league-systems">League Systems</h3>
+<p>Most countries employ a <strong>pyramid system</strong>:</p>
+<ul>
+<li><strong>Top Tier</strong>: Professional clubs, national TV coverage</li>
+<li><strong>Lower Tiers</strong>: Semi-professional/amateur, regional divisions</li>
+<li><strong>Promotion/Relegation</strong>: Movement between tiers based on performance</li>
+</ul>
+<h2 id="positions-and-formations">Positions and Formations</h2>
+<h3 id="player-positions">Player Positions</h3>
+<p>Goalkeeper (GK)
+Defenders
+├── Center Back (CB)
+├── Full Back (RB/LB)
+└── Wing Back (RWB/LWB)</p>
+<p>Midfielders
+├── Defensive Midfielder (CDM)
+├── Central Midfielder (CM)
+├── Attacking Midfielder (CAM)
+└── Wide Midfielder (RM/LM)</p>
+<p>Forwards
+├── Center Forward (CF)
+├── Striker (ST)
+└── Winger (RW/LW)</p>
+<p>text</p>
+<h3 id="common-formations">Common Formations</h3>
+<ul>
+<li><strong>4-4-2</strong>: Balanced, traditional English style</li>
+<li><strong>4-3-3</strong>: Attacking, favors wing play</li>
+<li><strong>4-2-3-1</strong>: Versatile, popular in modern football</li>
+<li><strong>3-5-2</strong>: Defensive solidity with attacking wing-backs</li>
+</ul>
+<h2 id="why-football-captivates-the-world">Why Football Captivates the World</h2>
+<h3 id="universal-accessibility">Universal Accessibility</h3>
+<ul>
+<li><strong>Simple equipment</strong>: Can be played with just a ball</li>
+<li><strong>Any location</strong>: Streets, beaches, parks, formal pitches</li>
+<li><strong>All ages</strong>: From children to veterans</li>
+<li><strong>All genders</strong>: Growing equality in participation</li>
+</ul>
+<h3 id="emotional-connection">Emotional Connection</h3>
+<ol>
+<li><strong>Community</strong>: Local clubs representing towns and cities</li>
+<li><strong>Identity</strong>: National teams uniting countries</li>
+<li><strong>Tradition</strong>: Generational support for clubs</li>
+<li><strong>Drama</strong>: Last-minute goals, underdog stories, rivalries</li>
+</ol>
+<h3 id="cultural-significance">Cultural Significance</h3>
+<ul>
+<li><strong>Language creation</strong>: Football-specific terminology</li>
+<li><strong>Art and literature</strong>: Inspiration for creative works</li>
+<li><strong>Social movement</strong>: Platform for political and social statements</li>
+<li><strong>Economic driver</strong>: Employment, tourism, broadcasting rights</li>
+</ul>
+<h2 id="getting-started-as-a-fan">Getting Started as a Fan</h2>
+<h3 id="for-new-supporters">For New Supporters</h3>
+<ol>
+<li><strong>Choose a team</strong>: Local club, family tradition, or attractive style</li>
+<li><strong>Learn the basics</strong>: Rules, common terms, major competitions</li>
+<li><strong>Watch matches</strong>: Experience the flow and tactics</li>
+<li><strong>Connect with community</strong>: Join fan groups, attend matches</li>
+</ol>
+<h3 id="key-terms-to-know">Key Terms to Know</h3>
+<ul>
+<li><strong>Derby</strong>: Match between local rivals</li>
+<li><strong>Hat-trick</strong>: Three goals by one player in a match</li>
+<li><strong>Clean sheet</strong>: Goalkeeper concedes no goals</li>
+<li><strong>Park the bus</strong>: Extremely defensive tactics</li>
+<li><strong>Golden boot</strong>: Award for top goal scorer</li>
+</ul>
+<h2 id="major-competitions-overview">Major Competitions Overview</h2>
+<h3 id="international-tournaments">International Tournaments</h3>
+<ul>
+<li><strong>FIFA World Cup</strong>: Global, every 4 years</li>
+<li><strong>UEFA European Championship</strong>: Europe, every 4 years</li>
+<li><strong>Copa América</strong>: South America, irregular schedule</li>
+<li><strong>African Cup of Nations</strong>: Africa, every 2 years</li>
+<li><strong>Asian Cup</strong>: Asia, every 4 years</li>
+</ul>
+<h3 id="club-competitions">Club Competitions</h3>
+<ul>
+<li><strong>UEFA Champions League</strong>: Top European clubs</li>
+<li><strong>Premier League</strong>: England (most-watched league)</li>
+<li><strong>La Liga</strong>: Spain (technical excellence)</li>
+<li><strong>Bundesliga</strong>: Germany (high attendance)</li>
+<li><strong>Serie A</strong>: Italy (tactical sophistication)</li>
+</ul>
+<h2 id="footballs-social-impact">Football's Social Impact</h2>
+<h3 id="positive-contributions">Positive Contributions</h3>
+<ul>
+<li><strong>Health benefits</strong>: Physical activity for millions</li>
+<li><strong>Community building</strong>: Shared experiences and identity</li>
+<li><strong>Economic development</strong>: Jobs, infrastructure, tourism</li>
+<li><strong>Social integration</strong>: Breaking down barriers</li>
+</ul>
+<h3 id="challenges-and-responsibilities">Challenges and Responsibilities</h3>
+<ul>
+<li><strong>Racism and discrimination</strong>: Ongoing battles</li>
+<li><strong>Financial inequality</strong>: Between clubs and nations</li>
+<li><strong>Sustainability</strong>: Environmental impact of events</li>
+<li><strong>Player welfare</strong>: Physical and mental health concerns</li>
+</ul>
+<h2 id="the-future-landscape">The Future Landscape</h2>
+<h3 id="emerging-trends">Emerging Trends</h3>
+<ul>
+<li><strong>Women's football</strong>: Rapid growth and professionalization</li>
+<li><strong>Technology</strong>: VAR, data analytics, fan engagement tools</li>
+<li><strong>Globalization</strong>: Expanding markets in Asia and North America</li>
+<li><strong>Sustainability</strong>: Eco-friendly stadiums and operations</li>
+</ul>
+<h3 id="opportunities-for-new-fans">Opportunities for New Fans</h3>
+<p>Football continues to evolve while maintaining its core appeal. Whether you're drawn to the tactical chess match, the individual brilliance, the community spirit, or the sheer drama, there's a place for everyone in the world of football.</p>
+<hr>
+<p><em>&quot;Football is a simple game. Twenty-two men chase a ball for 90 minutes and at the end, the Germans always win.&quot;</em><br>
+— Gary Lineker</p>
+<h2 id="getting-involved">Getting Involved</h2>
+<ul>
+<li><strong>Play</strong>: Join local clubs or casual games</li>
+<li><strong>Watch</strong>: Follow leagues and tournaments</li>
+<li><strong>Support</strong>: Attend matches, buy merchandise</li>
+<li><strong>Learn</strong>: Study tactics and history</li>
+<li><strong>Contribute</strong>: Volunteer, coach, or administer</li>
+</ul>
+<p>Welcome to the beautiful game!</p>
+
+</body>
+</html>

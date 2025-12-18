@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>history.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+ <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="history-of-football">History of Football</h1>
+<p><img src="FootballHistory.jpeg" alt="History"></p>
+<h2 id="origins-and-early-development">Origins and Early Development</h2>
+<p>Football, known as soccer in some countries, has ancient origins dating back over 2,000 years. The earliest known forms of football-like games were played in China (Cuju), Greece (Episkyros), and Rome (Harpastum). These early games involved kicking a ball and were often part of military training exercises.</p>
+<h3 id="medieval-football">Medieval Football</h3>
+<p>During the Middle Ages in Europe, various forms of &quot;mob football&quot; emerged, particularly in England. These games had few rules, unlimited players, and were often played between neighboring towns and villages. The games were so violent that they were banned by several kings, including Edward II in 1314.</p>
+<h2 id="the-birth-of-modern-football">The Birth of Modern Football</h2>
+<h3 id="the-cambridge-rules-1848">The Cambridge Rules (1848)</h3>
+<p>Students at Cambridge University attempted to standardize the rules, creating what became known as the Cambridge Rules. This was the first attempt to unify the different versions of the game being played at various English public schools.</p>
+<h3 id="the-football-association-1863">The Football Association (1863)</h3>
+<p>On October 26, 1863, representatives from 11 London clubs and schools met at the Freemasons' Tavern to establish the Football Association (FA). This meeting led to the creation of the first unified rules of football, which notably banned carrying the ball with hands.</p>
+<h3 id="the-split-from-rugby-1863">The Split from Rugby (1863)</h3>
+<p>The FA's decision to ban carrying the ball led to a split with rugby football. Those who preferred handling the ball formed the Rugby Football Union in 1871, creating a clear distinction between association football (soccer) and rugby football.</p>
+<h2 id="global-expansion">Global Expansion</h2>
+<h3 id="international-spread-1870s-1900s">International Spread (1870s-1900s)</h3>
+<p>Football spread rapidly through the British Empire and beyond:</p>
+<ul>
+<li><strong>1872</strong>: First official international match (Scotland vs. England)</li>
+<li><strong>1880s</strong>: Football introduced to South America by British sailors and workers</li>
+<li><strong>1888</strong>: Formation of the Football League in England, the world's first professional league</li>
+<li><strong>1904</strong>: Foundation of FIFA (Fédération Internationale de Football Association)</li>
+</ul>
+<h3 id="the-world-cup-era">The World Cup Era</h3>
+<ul>
+<li><strong>1930</strong>: First FIFA World Cup in Uruguay, won by the host nation</li>
+<li><strong>1950</strong>: Introduction of the European Cup (now UEFA Champions League)</li>
+<li><strong>1970</strong>: First live television broadcast of World Cup matches worldwide</li>
+</ul>
+<h2 id="evolution-of-the-game">Evolution of the Game</h2>
+<h3 id="rule-changes-and-innovations">Rule Changes and Innovations</h3>
+<ul>
+<li><strong>1872</strong>: Standardization of ball size and weight</li>
+<li><strong>1875</strong>: Introduction of the crossbar to replace tape</li>
+<li><strong>1891</strong>: Introduction of penalty kicks</li>
+<li><strong>1925</strong>: Offside rule modified to encourage attacking play</li>
+<li><strong>1970</strong>: Introduction of red and yellow cards</li>
+<li><strong>1992</strong>: Back-pass rule introduced to prevent time-wasting</li>
+</ul>
+<h3 id="tactical-evolution">Tactical Evolution</h3>
+<ol>
+<li><strong>Early formations</strong>: 1-1-8, 2-3-5 (Pyramid)</li>
+<li><strong>WM Formation</strong>: Herbert Chapman's 3-2-2-3 (1920s)</li>
+<li><strong>4-2-4</strong>: Brazilian innovation (1950s)</li>
+<li><strong>Total Football</strong>: Dutch philosophy (1970s)</li>
+<li><strong>4-4-2</strong>: English standard (1980s-1990s)</li>
+<li><strong>Tiki-taka</strong>: Spanish possession-based style (2000s)</li>
+</ol>
+<h2 id="womens-football-history">Women's Football History</h2>
+<h3 id="early-development">Early Development</h3>
+<ul>
+<li><strong>1895</strong>: First recorded women's football match in England</li>
+<li><strong>1920s</strong>: Peak of women's football with crowds of 50,000+</li>
+<li><strong>1921</strong>: FA bans women from playing on Football League grounds (lifted in 1971)</li>
+</ul>
+<h3 id="modern-era">Modern Era</h3>
+<ul>
+<li><strong>1971</strong>: UEFA recommends recognition of women's football</li>
+<li><strong>1991</strong>: First FIFA Women's World Cup</li>
+<li><strong>1996</strong>: Women's football becomes Olympic sport</li>
+<li><strong>2023</strong>: Record-breaking Women's World Cup with expanded 32-team format</li>
+</ul>
+<h2 id="milestones-in-football-history">Milestones in Football History</h2>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Event</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1863</td>
+<td>Formation of The FA</td>
+<td>First football governing body</td>
+</tr>
+<tr>
+<td>1872</td>
+<td>First FA Cup Final</td>
+<td>Oldest football competition</td>
+</tr>
+<tr>
+<td>1888</td>
+<td>Football League founded</td>
+<td>First professional league</td>
+</tr>
+<tr>
+<td>1904</td>
+<td>FIFA founded</td>
+<td>International governing body</td>
+</tr>
+<tr>
+<td>1930</td>
+<td>First World Cup</td>
+<td>Global tournament established</td>
+</tr>
+<tr>
+<td>1955</td>
+<td>European Cup begins</td>
+<td>Birth of continental club competition</td>
+</tr>
+<tr>
+<td>1992</td>
+<td>Premier League formed</td>
+<td>Modern commercial era begins</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>Goal-line technology proposed</td>
+<td>Technological innovation</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>VAR introduced in World Cup</td>
+<td>Video Assistant Referee debut</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cultural-impact">Cultural Impact</h2>
+<h3 id="global-phenomenon">Global Phenomenon</h3>
+<p>Football has become more than just a sport - it's a global cultural phenomenon that:</p>
+<ul>
+<li>Transcends political and social boundaries</li>
+<li>Generates economic impact through clubs, leagues, and merchandise</li>
+<li>Influences fashion, music, and art</li>
+<li>Serves as a platform for social change and activism</li>
+</ul>
+<h3 id="economic-evolution">Economic Evolution</h3>
+<ol>
+<li><strong>Amateur Era</strong> (pre-1880s): No player payments</li>
+<li><strong>Early Professionalism</strong> (1880s-1960s): Modest wages</li>
+<li><strong>Commercial Era</strong> (1970s-1990s): TV rights and sponsorships</li>
+<li><strong>Global Branding Era</strong> (2000s-present): Billion-dollar transfers, global merchandising</li>
+</ol>
+<h2 id="the-future-of-football">The Future of Football</h2>
+<h3 id="current-trends-and-challenges">Current Trends and Challenges</h3>
+<ul>
+<li><strong>Financial Inequality</strong>: Growing gap between elite clubs and smaller teams</li>
+<li><strong>Technology Integration</strong>: VAR, goal-line technology, AI analytics</li>
+<li><strong>Sustainability</strong>: Carbon-neutral events, eco-friendly stadiums</li>
+<li><strong>Player Welfare</strong>: Concussion protocols, mental health awareness</li>
+<li><strong>Global Calendar</strong>: Balancing club and international commitments</li>
+</ul>
+<h3 id="innovations-on-the-horizon">Innovations on the Horizon</h3>
+<ul>
+<li><strong>Semi-automated offside technology</strong></li>
+<li><strong>Enhanced player tracking systems</strong></li>
+<li><strong>Sustainable stadium designs</strong></li>
+<li><strong>Interactive fan experiences through AR/VR</strong></li>
+<li><strong>Global league competitions</strong></li>
+</ul>
+<h2 id="legacy-and-continuing-evolution">Legacy and Continuing Evolution</h2>
+<p>Football continues to evolve while maintaining its core appeal. From the muddy fields of 19th-century England to the high-tech stadiums of today, the beautiful game has remained a constant source of passion, drama, and community for billions worldwide. Its history is not just a record of matches and trophies, but a reflection of social change, technological progress, and human achievement.</p>
+<hr>
+<p><em>&quot;Some people believe football is a matter of life and death. I am very disappointed with that attitude. I can assure you it is much, much more important than that.&quot;</em><br>
+— Bill Shankly</p>
+
+</body>
+</html>
